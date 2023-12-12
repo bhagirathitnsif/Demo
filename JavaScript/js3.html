@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Array and String Operations</title>
+</head>
+<body>
+
+<script>
+    // Function Declaration
+function greetAlice() {
+  console.log("Hello, Alice (Function Declaration)");
+}
+greetAlice();
+
+// Function Expression
+const greetBob = function() {
+  console.log("Hello, Bob (Function Expression)");
+};
+greetBob();
+
+// Arrow Function
+const greetCharlie = () => {
+  console.log("Hello, Charlie (Arrow Function)");
+};
+greetCharlie();
+
+// Function Constructor
+const greetDave = new Function('console.log("Hello, Dave (Function Constructor)");');
+greetDave();
+
+// IIFE (Immediately Invoked Function Expression)
+(function() {
+  console.log("Hello, Eve (IIFE)");
+})();
+
+// Generator Function
+function* greetWorld() {
+  yield "Hello, World (Generator Function)";
+}
+const generator = greetWorld();
+console.log(generator.next().value);
+
+// Returned Function
+function getGreetFunction(name) {
+  return function() {
+    console.log('Hey, Frank (Returned Function)');
+  };
+}
+const greetFrank = getGreetFunction("Frank");
+greetFrank();
+
+// Object Method
+const person = {
+  name: "Grace",
+  greet: function() {
+    console.log('Hello, Grace (Object Method)');
+  }
+};
+person.greet();
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6 concepts</title>
+</head>
+<body>
+    <script>
+    // 1. Let and Const
+    let variableLet = 'Mutable';
+    const variableConst = 'Immutable';
+    
+    // 2. Template Literals
+    const name = 'John';
+    console.log(`Hello, ${name}!`);
+    
+    // 3. Arrow Functions
+    const add = (a, b) => a + b;
+    
+    // 4. Destructuring Assignment
+    const person = { firstName: 'Jane', lastName: 'Doe' };
+    const { firstName, lastName } = person;
+    
+    const numbers = [1, 2, 3, 4, 5];
+    const [first, second, ...rest] = numbers;
+    
+    // 5. Default Parameters
+    const greet = (name = 'Guest') => `Hello, ${name}!`;
+    
+    // 6. Spread and Rest Operators
+    const arr = [6, 7, 8];
+    const combinedArray = [...numbers, ...arr];
+    
+    const { x, y, ...other } = { x: 10, y: 20, z: 30 };
+    
+    // 7. Classes
+    class Animal {
+      constructor(name) {
+        this.name = name;
+      }
+    
+      speak() {
+        console.log(`${this.name} makes a sound.`);
+      }
+    }
+    
+    class Dog extends Animal {
+      constructor(name, breed) {
+        super(name);
+        this.breed = breed;
+      }
+    
+      bark() {
+        console.log(`${this.name} barks!`);
+      }
+    }
+    
+    // 8. Modules (Assuming this code is in a module)
+    // import { someFunction } from './moduleExample';
+    
+    // 9. Promises
+    const fetchData = () => new Promise(resolve => resolve('Data fetched successfully'));
+    
+    // 10. Map, Set, and WeakMap/WeakSet
+    const myMap = new Map();
+    myMap.set('key', 'value');
+    
+    const mySet = new Set([1, 2, 3, 4, 5]);
+    
+    const weakMap = new WeakMap();
+    const weakSet = new WeakSet();
+    
+    // 11. Async/Await
+    const fetchDataAsync = async () => {
+      try {
+        const data = await fetchData();
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    
+    // 12. Symbol
+    const mySymbol = Symbol('uniqueSymbol');
+    
+    // Execute examples
+    console.log(add(5, 3));
+    console.log(greet());
+    fetchDataAsync();
+    
+    // Additional Concepts: Object Shorthand and Computed Property Names
+    const dynamicKey = 'dynamicKey';
+    const dynamicValue = 'dynamicValue';
+    
+    const myObject = {
+      dynamicKey, // Object Shorthand
+      [dynamicKey]: dynamicValue, // Computed Property Names
+    };
+    
+    console.log(myObject);
+    
+    // 13. Sets
+    const uniqueNumbers = new Set([1, 2, 3, 4, 5, 1, 2]);
+    console.log(uniqueNumbers); // Output: Set { 1, 2, 3, 4, 5 }
+    
+    // 14. Promises and Fetch API
+    const fetchDataFromAPI = () => {
+      return fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json());
+    };
+    
+    fetchDataFromAPI().then(data => console.log('Data from API:', data));
+    
+
+</script>
+</body>
+</html>
+

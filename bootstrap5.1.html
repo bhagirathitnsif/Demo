@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Registration Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: red;">
+
+<div class="container-lg mt-5">
+  <h2 class="text-center">Employee Registration Form for large device</h2>
+  <form class="col-lg-6 mx-auto">
+    <div class="form-group row">
+      <label for="fullName" class="col-lg-2 col-form-label">Full Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="fullName" placeholder="Enter Full Name" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-lg-2 col-form-label">Email</label>
+      <div class="col-lg-10">
+        <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="password" class="col-lg-2 col-form-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="department" class="col-lg-2 col-form-label">Department</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="department" required>
+          <option value="" disabled selected>Select Department</option>
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="ME">ME</option>
+          <option value="Civil">Civil</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-lg-10 offset-lg-2">
+        <button type="submit" class="btn btn-success btn-block">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

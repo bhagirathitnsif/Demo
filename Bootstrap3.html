@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Gutters</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .custom-gutter .col {
+      margin-bottom: 20px; /* Adjust the custom gutter size as needed */
+    }
+     .col{
+        background-color: powderblue;
+     }
+     .col-4{
+        background-color: powderblue;
+     }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>Default Gutters</h2>
+  <div class="row">
+    <div class="col" sm-bg-primary>Column 1</div>
+    <div class="col">Column 2</div>
+    <div class="col">Column 3</div>
+
+  </div>
+
+  <h2>No Gutters</h2>
+  <div class="row no-gutters">
+    <div class="col-4">Column 1</div>
+    <div class="col-4">Column 2</div>
+    <div class="col-4">Column 3</div>
+  </div>
+
+  <h2>Custom Gutters</h2>
+  <div class="row custom-gutter">
+    <div class="col-5">Column 1</div>
+    <div class="col-5">Column 2</div>
+    <div class="col-5">Column 3</div>
+    <div class="col-5">Column 4</div>
+    <div class="col-5">Column 5</div>
+    <div class="col-5">Column 6</div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

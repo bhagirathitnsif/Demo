@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: black;
+      color: white;
+    }
+
+    #timer {
+      font-size: 2em;
+      margin-bottom: 20px;
+      font-weight: 1000;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    #controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+       width:25%;
+      font-size: 4em;
+      margin: 0 10px;
+      padding: 10px;
+      cursor: pointer;
+      
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    input {
+      width: 50px;
+      text-align: center;
+    }
+   
+  </style>
+</head>
+<body>
+  <h2 style="color: cadetblue;">SESSION</h2>
+  <div id="timer">25:00</div>
+
+  <div style="background-color: dimgrey;">
+    <label for="sessionLength" >SESSION LENGTH</label>
+  </div>
+  <div >
+    <button onclick="decreaseSession()" style="background-color: blue;">-</button>
+    <input type="number" id="sessionLength" value="25" min="1"  >
+    <button onclick="increaseSession()" style="background-color: blue;">+</button>
+  </div>
+
+  <div style="background-color: grey;">
+    <label for="breakLength">BREAK LENGTH</label>
+  </div>
+  <div >
+    <button onclick="decreaseBreak()" style="background-color: blue;">-</button>
+    <input type="number" id="breakLength" value="5" min="1">
+    <button onclick="increaseBreak()" style="background-color: blue;">+</button>
+  </div>
+
+  <div id="controls">
+    <button id="start" onclick="startTimer()" style="background-color: greenyellow;">Start</button>
+    <button id="pause" onclick="pauseTimer()" style="background-color: red;">Stop</button>
+    <button id="reset" onclick="resetTimer()" style="background-color: orange;">Reset</button>
+  </div>
+
+  <script>
+    let timer;
+    let sessionMinutes = 25;
+    let breakMinutes = 5;
+    let seconds = 0;
+    let isPaused = false;
+    let isSession = true; // true for session, false for break
+
+    function updateDisplay() {
+      const timerDisplay = document.getElementById('timer');
+      const minutes = isSession ? sessionMinutes : breakMinutes;
+      timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function startTimer() {
+      timer = setInterval(function () {
+        if (!isPaused) {
+          if (sessionMinutes === 0 && breakMinutes === 0 && seconds === 0) {
+            clearInterval(timer);
+            if (isSession) {
+              alert('Session completed! Take a break.');
+              sessionMinutes = document.getElementById('sessionLength').value;
+              isSession = false;
+            } else {
+              alert('Break completed! Back to work.');
+              breakMinutes = document.getElementById('breakLength').value;
+              isSession = true;
+            }
+            resetTimer();
+          } else if (seconds === 0) {
+            if (isSession) {
+              sessionMinutes--;
+            } else {
+              breakMinutes--;
+            }
+            seconds = 59;
+          } else {
+            seconds--;
+          }
+          updateDisplay();
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      isPaused = true;
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      seconds = 0;
+      isPaused = false;
+      updateDisplay();
+    }
+
+    function increaseSession() {
+      document.getElementById('sessionLength').value++;
+    }
+
+    function decreaseSession() {
+      if (document.getElementById('sessionLength').value > 1) {
+        document.getElementById('sessionLength').value--;
+      }
+    }
+
+    function increaseBreak() {
+      document.getElementById('breakLength').value++;
+    }
+
+    function decreaseBreak() {
+      if (document.getElementById('breakLength').value > 1) {
+        document.getElementById('breakLength').value--;
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Array and String Operations</title>
+</head>
+<body>
+
+<script>
+  // Array operations
+  let numbers = [1, 2, 3, 4, 5];
+  console.log("Joined String:", numbers.join(", "));
+
+  console.log("\nAfter Push:", numbers.push(6, 7), numbers);
+
+  console.log("\nAfter Pop:", numbers.pop(), numbers);
+
+  console.log("\nAfter Shift:", numbers.shift(), numbers);
+
+  console.log("\nAfter Unshift:", numbers.unshift(0), numbers);
+
+  let slicedArray = numbers.slice(1, 4);
+  console.log("\nSliced Array:", slicedArray);
+
+  console.log("\nAfter Splice:", numbers.splice(1, 2, 8, 9), numbers);
+
+  console.log("\nIndex of 5:", numbers.indexOf(5));
+
+  console.log("3 exists in array:", numbers.includes(3));
+
+  console.log("\nAfter Reverse:", numbers.reverse());
+
+  console.log("\nAfter Sort:", numbers.sort((a, b) => a - b));
+
+  // String operations
+  let originalString = "JavaScript is awesome!";
+  console.log("\nUppercase:", originalString.toUpperCase());
+
+  console.log("Lowercase:", originalString.toLowerCase());
+
+  console.log("Length:", originalString.length);
+
+  console.log("Index of 'is':", originalString.indexOf("is"));
+
+  console.log("Substring:", originalString.substring(8, 14));
+
+  console.log("Replaced String:", originalString.replace("amazing", "awesome"));
+
+  let splitArray = originalString.split(" ");
+  console.log("\nSplit Array:", splitArray);
+</script>
+
+</body>
+</html>

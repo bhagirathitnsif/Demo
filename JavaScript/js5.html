@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Swap</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+      align-items: center;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 0fr);
+      gap: 0px;
+      
+    }
+
+    .number {
+       border:1px solid black;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: move;
+      margin: 0px; /* Add margin for spacing */
+    }
+  </style>
+</head>
+<body>
+
+<h2>Drag and Drop Numbers 1 to 9</h2>
+
+<div class="grid-container" id="sortable">
+  <div class="number" draggable="true" ondragstart="drag(event)" id="1">1</div>
+  <div class="number" draggable="true" ondragstart="drag(event)" id="2">2</div>
+  <div class="number" draggable="true" ondragstart="drag(event)" id="3">3</div>
+  <div class="number" draggable="true" ondragstart="drag(event)" id="4">4</div>
+  <div class="number" draggable="true" ondragstart="drag(event)" id="5">5</div>
+  <div class="number" draggable="true" ondragstart="drag(event)" id="6">6</div>
+  <div class="number" draggable="true" ondragstart="drag(event)" id="7">7</div>
+  <div class="number" draggable="true" ondragstart="drag(event)" id="8">8</div>
+  <div class="number" draggable="true" ondragstart="drag(event)" id="9">9</div>
+</div>
+
+<script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    const draggedElement = document.getElementById(data);
+    const droppedElement = ev.target;
+
+    // Swap the innerHTML and id attributes
+    const tempInnerHTML = draggedElement.innerHTML;
+    const tempId = draggedElement.id;
+
+    draggedElement.innerHTML = droppedElement.innerHTML;
+    draggedElement.id = droppedElement.id;
+
+    droppedElement.innerHTML = tempInnerHTML;
+    droppedElement.id = tempId;
+  }
+
+  const sortableContainer = document.getElementById('sortable');
+  sortableContainer.addEventListener('dragover', allowDrop);
+  sortableContainer.addEventListener('drop', drop);
+</script>
+
+</body>
+</html>
